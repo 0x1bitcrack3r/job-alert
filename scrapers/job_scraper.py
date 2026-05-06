@@ -37,7 +37,6 @@ SAP_SEARCH_TERMS = [
     "SAP S/4HANA FICO Consultant corp to corp",
     "SAP S4 Finance Functional C2C",
     "SAP S/4HANA Financial Accounting contract",
-    "SAP S4HANA Central Finance C2C",
 
     # --- Financial Accounting (FI) module specifics ---
     "SAP Financial Accounting Consultant C2C",
@@ -45,8 +44,6 @@ SAP_SEARCH_TERMS = [
     "SAP GL Consultant contract",
     "SAP Accounts Payable Consultant C2C",
     "SAP AP Consultant corp to corp",
-    "SAP Accounts Receivable Consultant C2C",
-    "SAP AR Consultant contract",
     "SAP Asset Accounting Consultant C2C",
     "SAP AA Consultant corp to corp",
     "SAP Bank Accounting Consultant C2C",
@@ -54,7 +51,6 @@ SAP_SEARCH_TERMS = [
 
     # --- Controlling (CO) module specifics ---
     "SAP Controlling Consultant C2C",
-    "SAP CO CCA Consultant contract",
     "SAP Cost Center Accounting C2C",
     "SAP Profit Center Accounting Consultant C2C",
     "SAP Product Costing Consultant C2C",
@@ -68,13 +64,9 @@ SAP_SEARCH_TERMS = [
     "SAP FICO Business Analyst C2C",
     "SAP Finance Solution Architect C2C",
     "SAP FICO Architect corp to corp",
-    "SAP Finance Project Manager C2C",
-    "SAP Finance Manager contract",
-    "SAP Finance Director C2C",
     "SAP FICO SME C2C",
     "SAP Finance Subject Matter Expert contract",
     "SAP FICO Team Lead C2C",
-    "SAP Finance Program Manager C2C",
 
     # --- Implementation / rollout context ---
     "SAP FICO Implementation Consultant C2C",
@@ -86,17 +78,6 @@ SAP_SEARCH_TERMS = [
     "SAP FICO Configuration Consultant C2C",
     "SAP Finance Support Consultant C2C",
     "SAP FICO AMS Consultant C2C",
-
-    # --- Treasury & related Finance modules ---
-    "SAP Treasury Consultant C2C",
-    "SAP TRM Consultant contract",
-    "SAP Cash Management Consultant C2C",
-    "SAP BCM Consultant C2C",
-    "SAP FSCM Consultant C2C",
-    "SAP Financial Supply Chain C2C",
-    "SAP Credit Management Consultant C2C",
-    "SAP Dispute Management Consultant C2C",
-    "SAP Collection Management Consultant C2C",
 
     # --- Industry / domain qualifiers ---
     "SAP FICO Healthcare Consultant C2C",

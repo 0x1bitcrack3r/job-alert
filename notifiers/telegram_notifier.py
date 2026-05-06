@@ -53,29 +53,25 @@ class TelegramNotifier:
 
     def send(self, job: dict) -> bool:
         message = self._build_message(job)
-        try:
-            resp = requests.post(
-                f"{self.base_url}/sendMessage",
-                json={
-                    "chat_id": self.chat_id,
-                    "text": message,
-                    "parse_mode": "Markdown",
-                    "disable_web_page_preview": False,
-                },
-                timeout=10,
-            )
-            resp.raise_for_status()
-            log.info(f"  ✅ Telegram sent: {job['title']} @ {job['company']}")
-            return True
-        except requests.HTTPError as e:
-            # Handle Markdown parse errors by falling back to plain text
-            if resp.status_code == 400:
-                return self._send_plain(job)
-            log.error(f"  ❌ Telegram HTTP error: {e}")
-            return False
-        except Exception as e:
-            log.error(f"  ❌ Telegram error: {e}")
-            return False
+        success = True
+        for chat_id in config.TELEGRAM_CHAT_ID:
+            try:
+                resp = requests.post(
+                    f"{self.base_url}/sendMessage",
+                    json={
+                        "chat_id": chat_id,
+                        "text": message,
+                        "parse_mode": "Markdown",
+                        "disable_web_page_preview": False,
+                    },
+                    timeout=10,
+                )
+                resp.raise_for_status()
+                log.info(f"  ✅ Telegram sent to {chat_id}: {job['title']}")
+            except Exception as e:
+                log.error(f"  ❌ Telegram error for {chat_id}: {e}")
+                success = False
+        return success
 
     def _send_plain(self, job: dict) -> bool:
         """Fallback plain-text send (no Markdown parsing)."""

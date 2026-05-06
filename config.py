@@ -11,7 +11,13 @@ from dataclasses import dataclass, field
 class Config:
     # Telegram
     TELEGRAM_BOT_TOKEN: str = field(default_factory=lambda: os.getenv("TELEGRAM_BOT_TOKEN", ""))
-    TELEGRAM_CHAT_ID: str = field(default_factory=lambda: os.getenv("TELEGRAM_CHAT_ID", ""))
+    TELEGRAM_CHAT_ID: list[str] = field(
+    default_factory=lambda: [
+        cid.strip()
+        for cid in os.getenv("TELEGRAM_CHAT_ID", "").split(",")
+        if cid.strip()
+    ]
+)
 
     # WhatsApp (Twilio) — optional
     WHATSAPP_ENABLED: bool = field(default_factory=lambda: os.getenv("WHATSAPP_ENABLED", "false").lower() == "true")
