@@ -1,0 +1,29 @@
+# render.yaml — Deploy to Render.com free tier (background worker)
+# Free tier: 750 hours/month, auto-restarts, persistent disk add-on available
+
+services:
+  - type: worker
+    name: sap-job-alert-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    disk:
+      name: job-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false        # Set manually in Render dashboard
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: WHATSAPP_ENABLED
+        value: "false"
+      - key: POLL_INTERVAL_MINUTES
+        value: "30"
+      - key: HOURS_OLD
+        value: "24"
+      - key: RESULTS_PER_SOURCE
+        value: "50"
+      - key: LOCATION
+        value: "United States"
+      - key: DB_PATH
+        value: "/data/jobs.db"

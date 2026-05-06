@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  job-alert-bot:
+    build: .
+    container_name: sap_job_alert
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - job_data:/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  job_data:
