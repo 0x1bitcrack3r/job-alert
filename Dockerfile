@@ -21,7 +21,7 @@ RUN playwright install-deps chromium
 COPY . .
 
 # Data dir for SQLite DB
-RUN mkdir -p /data
+RUN mkdir -p /app/data
 
 ENV PYTHONUNBUFFERED=1
 ENV DB_PATH=/data/jobs.db
